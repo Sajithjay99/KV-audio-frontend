@@ -1,0 +1,53 @@
+/* Container styling */
+div {
+    width: 220px;
+  
+    border-radius: 8px;
+    
+    overflow: hidden;
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 16px;
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  div:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Image styling */
+  img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+  }
+  
+  /* Product name styling */
+  span:first-of-type {
+    display: block;
+    margin: 8px 0;
+    font-size: 14px;
+    color: #333;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  
+  /* Price styling */
+  span:last-of-type {
+    font-size: 16px;
+    font-weight: bold;
+    color: #e63946;
+    margin: 8px 0;
+    display: block;
+  }
+  
+  /* Heading styling */
+  h1 {
+    font-size: 24px;
+    color: #333;
+    margin: 16px 0;
+  }
+   
