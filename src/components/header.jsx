@@ -5,17 +5,17 @@ export default function Header() {
   return (
     <div>
       <header className="w-full h-[100px] shadow-xl bg-blue-400 flex justify-center items-center relative">
-        <img src="/logo.png" alt="Logo" className="w-[100px] h-[100px] object-cover  absolute left-3 border-[3px] rounded-full"/>
-        <Link to="/" className="text-[25px] font-bold m-1">
+        <img src="/logo.png" alt="Logo" className="w-[90px] h-[90px] object-cover  absolute left-4 border-[3px] rounded-full"/>
+        <Link to="/" className="m-1 text-xl font-bold">
           Home
         </Link>
-        <Link to="/contact" className="text-[25px] font-bold m-4">
+        <Link to="/contact" className="m-5 text-xl font-bold">
           Contact
         </Link>
-        <Link to="/gallary" className="text-[25px] font-bold m-4">
+        <Link to="/gallary" className="m-5 text-xl font-bold">
           Gallary
         </Link>
-        <Link to="/items" className="text-[25px] font-bold m-4">
+        <Link to="/items" className="m-5 text-xl font-bold">
           Items
         </Link>
       </header>
