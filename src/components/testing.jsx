@@ -15,36 +15,37 @@ export default function Testing() {
 
 
   return (
-    <div className='flex flex-col items-center justify-center h-screen'>
-
-      <h1>{value}</h1>
-
-      <br />
+    <div className="flex items-center justify-center w-full h-screen bg-picture">
+    <div className="w-[400px] h-[400px] backdrop-blur-xl  flex justify-center items-center  flex-col relative">
       
+      
+        <img src="./logo.png" alt="Logo" className="w-[100px] h-[100px] object-cover border-[3px] rounded-full absolute top-[40px]" />
 
-        <button style={{
-            backgroundColor: 'red',
-            color: 'white',
-            fontSize: '20px',
-            padding: '10px',
-            borderRadius: '10px',
-            paddingRight: '10px'
-        }} onClick={increment}>+</button>
-
+        <div className="absolute flex flex-col items-center justify-center top-[180px]">
         
-        <button 
-        style={{
-            backgroundColor: 'blue',
-            color: 'white',
-            fontSize: '20px',
-            padding: '10px',
-            borderRadius: '10px',
-            paddingRight: '10px'
-            
-        }}
+        <input type="Email" placeholder="Email" className="p-[8px] mb-[15px] w-[300px] h-[35px] rounded-md" 
+        value={email}
         
-        onClick={decrement}>-</button>
+        onChange={
+          (e)=>{
+            setEmail(e.target.value)
+          }
+        }/>
+        <input type="password" placeholder="Password" className="p-[8px] mb-[20px] w-[300px] h-[35px] rounded-md" 
+        
+        value={password}
+        onChange={
+          (e)=>{
+            setPassword(e.target.value)
+          }
+        } />
 
+        <button className="bg-yellow-200 w-[100px] h-[35px] border-[1px] rounded-xl" onClick={login} >Login</button>
+
+        </div>
+        
+     
     </div>
+  </div>
   )
 }

@@ -1,22 +1,56 @@
 import React from "react";
 import { useState } from "react";
 import "./LoginPage.css";
+import axios from "axios";
+import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 export default function LoginPage() {
 
   const [email,setEmail] = useState("");
   const [password,setPassword] = useState("");
+  const navigate = useNavigate()
 
 
-  const login = ()=>{ 
-    console.log(email,password)
-     
+ const handleonsubmit = (e)=>{  
+    e.preventDefault()
+   
+    console.log( "submitted") 
+    console.log(email)
+    console.log(password)
+    
+
+    axios.post("http://localhost:3000/api/users/login",{
+      email:email,
+      password:password
+    }).then((res)=>{
+      console.log(res.data)
+       toast.success("Login Successfull")
+       
+       const user = res.data.user
+       
+       if(user.role === "admin"){
+          navigate("/admin/dashboard")
+       }else{
+        
+          navigate("/")
+       }
+
+       
+    }).catch((err)=>{
+      console.log(err)
+      toast.error("Login Failed")
+    }) 
+    
   }
-
-
+      
+      
+ 
   
   return (
     <div className="flex items-center justify-center w-full h-screen bg-picture">
+      
+      <form  onSubmit={handleonsubmit}>
       <div className="w-[400px] h-[400px] backdrop-blur-xl  flex justify-center items-center  flex-col relative">
         
         
@@ -41,12 +75,13 @@ export default function LoginPage() {
             }
           } />
 
-          <button className="bg-yellow-200 w-[100px] h-[35px] border-[1px] rounded-xl" onClick={login} >Login</button>
+          <button className="bg-yellow-200 w-[100px] h-[35px] border-[1px] rounded-xl"   >Login</button>
 
           </div>
-          
+         
        
       </div>
+      </form>
     </div>
   );
 }
