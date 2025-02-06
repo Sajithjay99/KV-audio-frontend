@@ -19,6 +19,7 @@ export default function LoginPage() {
     console.log(email)
     console.log(password)
     
+      
 
     axios.post("http://localhost:3000/api/users/login",{
       email:email,
@@ -28,6 +29,8 @@ export default function LoginPage() {
        toast.success("Login Successfull")
        
        const user = res.data.user
+
+       localStorage.setItem("token",res.data.token)
        
        if(user.role === "admin"){
           navigate("/admin/dashboard")
